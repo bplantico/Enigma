@@ -3,6 +3,7 @@ require 'minitest/emoji'
 require './lib/enigma'
 
 
+
 class EnigmaTest < Minitest::Test
 
   def setup
