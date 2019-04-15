@@ -2,11 +2,11 @@ require 'date'
 
 class Enigma
 
-  def encrypt(message, key, date = Date.today.strftime("%d%m%y"))
+  def encrypt(message, key, offset = Date.today.strftime("%d%m%y"))
     encryption_hash = {
                     encryption: nil,
                     key: key,
-                    date: date
+                    date: offset
     }
   end
 

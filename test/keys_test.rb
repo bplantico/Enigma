@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/emoji'
-require './lib/enigma'
 require './lib/keys'
 
 class KeysTest < Minitest::Test
