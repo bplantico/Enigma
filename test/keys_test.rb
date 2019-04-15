@@ -13,12 +13,25 @@ class KeysTest < Minitest::Test
     assert_instance_of Keys, @keys
   end
 
-  def test_seed_number_is_an_integer
-    assert_equal Integer, @keys.seed_number.class
+  def test_seed_string_becomes_4_two_char_strings
+    assert_equal 2, @keys.key('a').length
+    assert_equal 2, @keys.key('b').length
+    assert_equal 2, @keys.key('c').length
+    assert_equal 2, @keys.key('d').length
+    assert_nil @keys.key('e')
+
+    assert_equal String, @keys.key('a').class
+    assert_equal String, @keys.key('b').class
+    assert_equal String, @keys.key('c').class
+    assert_equal String, @keys.key('d').class
+    assert_nil @keys.key('e')
   end
 
-  def test_seed_becomes_five_char_string
-    assert_equal 5, @keys.seed_string.length
+  def test_keys_dont_change
+    assert @keys.key('a') == @keys.key('a')
+    assert @keys.key('b') == @keys.key('b')
+    assert @keys.key('c') == @keys.key('c')
+    assert @keys.key('d') == @keys.key('d')
   end
 
 end
