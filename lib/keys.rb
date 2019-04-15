@@ -18,4 +18,5 @@ class Keys
     return (c + d) if letter == 'c'
     return (d + e) if letter == 'd'
   end
+
 end
