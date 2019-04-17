@@ -9,8 +9,12 @@ class RandkeyTest < Minitest::Test
     @rand_key = RandKey.new
   end
 
-def test_it_exists
-  assert_instance_of RandKey, @rand_key
-end
+  def test_it_exists
+    assert_instance_of RandKey, @rand_key
+  end
+
+  def test_it_initializes_with_a_seed_number_as_integer
+    assert @rand_key.seed_number.integer?
+  end
 
 end
