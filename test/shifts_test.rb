@@ -14,4 +14,9 @@ class ShiftsTest < Minitest::Test
     assert_instance_of Shifts, @shifts
   end
 
+  def test_it_has_attributes
+    assert_equal '12345', @shifts.key
+    assert_equal '160419', @shifts.date
+  end
+
 end
