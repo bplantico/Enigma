@@ -23,4 +23,27 @@ class ShiftsTest < Minitest::Test
     assert_equal 4, @shifts.keys.count
   end
 
+  def test_keys_array_elements_are_integers
+    assert @shifts.keys[0].integer?
+    assert @shifts.keys[1].integer?
+    assert @shifts.keys[2].integer?
+    assert @shifts.keys[3].integer?
+  end
+
+  def test_offsets_returns_four_offsets_that_are_integers
+    assert_equal 4, @shifts.offsets.count
+    assert @shifts.offsets[0].integer?
+    assert @shifts.offsets[1].integer?
+    assert @shifts.offsets[2].integer?
+    assert @shifts.offsets[3].integer?
+  end
+
+  def test_shifts_method_returns_four_shifts_that_are_integers
+    assert_equal 4, @shifts.shifts.count
+    assert @shifts.shifts[0].integer?
+    assert @shifts.shifts[1].integer?
+    assert @shifts.shifts[2].integer?
+    assert @shifts.shifts[3].integer?
+  end
+
 end
