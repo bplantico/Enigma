@@ -1,4 +1,6 @@
 class Shifts
+  attr_reader :key,
+              :date
 
   def initialize(key, date)
     @key  = key
