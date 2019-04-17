@@ -2,8 +2,8 @@ require 'simplecov'
 SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/emoji'
-require './lib/enigma'
-require './lib/cipher'
+require './lib/rand_key'
+
 
 class RandkeyTest < Minitest::Test
 
