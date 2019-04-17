@@ -19,4 +19,8 @@ class ShiftsTest < Minitest::Test
     assert_equal '160419', @shifts.date
   end
 
+  def test_keys_array_has_four_elements
+    assert_equal 4, @shifts.keys.count
+  end
+
 end
