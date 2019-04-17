@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/emoji'
 require './lib/enigma'
@@ -38,8 +40,17 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_message_with_key_only
-    assert_equal @today, @enigma.encrypt('hello world')[:date]
+
+    expected = {
+                encryption: 'keder ohulw',
+                key: '02715',
+                date: '040895'
+                }
+
+    assert_equal expected, @enigma.encrypt('hello world', '02715', '040895')
   end
+
+
 
   def test_encrypt_hash_key_rand_if_no_key_given
     expected = {
