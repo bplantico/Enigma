@@ -1,8 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'minitest/autorun'
-require 'minitest/emoji'
-require './lib/shifts'
+require './test/test_helper'
 
 class ShiftsTest < Minitest::Test
 

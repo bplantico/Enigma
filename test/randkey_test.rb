@@ -1,9 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'minitest/autorun'
-require 'minitest/emoji'
-require './lib/rand_key'
-
+require './test/test_helper'
 
 class RandkeyTest < Minitest::Test
 

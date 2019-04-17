@@ -1,9 +1,4 @@
-# require 'simplecov'
-# SimpleCov.start
-require 'minitest/autorun'
-require 'minitest/emoji'
-require './lib/shifts'
-require './lib/cipher'
+require './test/test_helper'
 
 class CipherTest < Minitest::Test
 
