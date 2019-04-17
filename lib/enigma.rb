@@ -1,32 +1,26 @@
+require_relative './rand_key'
+require_relative './cipher'
+require_relative './shifts'
 require 'date'
 
 class Enigma
-  attr_reader :seed_number
+  attr_reader :rand_key
 
   def initialize
-    @seed_number = rand(0..99999)
+    @rand_key     = RandKey.new
+    @todays_date  = Date.today.strftime("%d%m%y")
   end
 
-  def key(letter)
-    seed_string = @seed_number.to_s.rjust(5, "0")
-    seed_string_array = seed_string.chars
-    a,b,c,d,e = seed_string_array
-    return (a + b) if letter.downcase == 'a'
-    return (b + c) if letter.downcase == 'b'
-    return (c + d) if letter.downcase == 'c'
-    return (d + e) if letter.downcase == 'd'
+  def encrypt(message, key = @rand_key.as_string, date = @todays_date)
+    shifts = Shifts.new(key, date)
+    cipher = Cipher.new(message, shifts.shifts)
+    hash = {encryption: cipher.encrypted_string, key: key, date: date}
   end
 
-  def encrypt(message, key = @seed_number, date = "150419") # Date.today.strftime("%d%m%y"))
-
-    encryption_hash = {
-                    encryption: nil,
-                    key: key,
-                    date: date
-                      }
-
+  def decrypt(message, key, date = @todays_date)
+    shifts = Shifts.new(key, date)
+    cipher = Cipher.new(message, shifts.shifts)
+    hash = {decryption: cipher.decrypted_string, key: key, date: date}
   end
-
-
 
 end

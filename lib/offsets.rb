@@ -1,5 +1,0 @@
-class Offsets
-
-
-
-end

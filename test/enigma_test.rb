@@ -1,59 +1,55 @@
 require 'minitest/autorun'
 require 'minitest/emoji'
 require './lib/enigma'
-
+require './lib/cipher'
 
 
 class EnigmaTest < Minitest::Test
 
   def setup
     @enigma = Enigma.new
+    @today = Date.today.strftime("%d%m%y")
   end
 
   def test_it_exists
     assert_instance_of Enigma, @enigma
   end
 
-  def test_encrypt_method_returns_hash
+  def test_encrypt_returns_hash
 
     expected = {
-                encryption: nil,
-                key: "02715",
-                date: "040895"
+                encryption: 'keder ohulw',
+                key: '02715',
+                date: '040895'
                 }
 
-    assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+    assert_equal expected, @enigma.encrypt('hello world', '02715', '040895')
   end
 
-  def test_encrypt_method_returns_today_if_no_date_given
+  def test_encrypt_hash_date_today_if_no_date_given
+    assert_equal @today, @enigma.encrypt('hello world')[:date]
+  end
 
+  def test_encrypt_hash_key_rand_if_no_key_given
     expected = {
-                encryption: nil,
-                key: "02715",
-                date: "150419"
+                encryption: 'keder ohulw',
+                key: '00457',
+                date: @today
                 }
 
-    assert_equal expected, @enigma.encrypt("hello world", "02715")
+    assert @enigma.encrypt('hello world')[:key].to_i.integer?
+    assert_equal 5, @enigma.encrypt('hello world')[:key].length
+    assert_equal String, @enigma.encrypt('hello world')[:key].class
   end
 
-  def test_it_generates_seed_number
-    assert_instance_of Integer, @enigma.seed_number
-  end
+  def test_decrypt
+    expected = {
+                decryption: 'hello world',
+                key: '42640',
+                date: '160419'
+                }
 
-  def test_key_method_returns_two_char_string
-    assert_equal 2, @enigma.key('A').length
-    assert_equal String, @enigma.key('A').class
-  end
-
-  def test_key_method_returns_same_key_if_called_twice
-    assert @enigma.key('a') == @enigma.key('A')
-    assert @enigma.key('B') == @enigma.key('B')
-    assert @enigma.key('C') == @enigma.key('c')
-    assert @enigma.key('d') == @enigma.key('d')
-  end
-
-  def test_case_name
-
+    assert_equal expected, @enigma.decrypt('aiazhdlbkpt', '42640', '160419')
   end
 
 end
