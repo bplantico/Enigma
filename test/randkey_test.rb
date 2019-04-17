@@ -24,4 +24,8 @@ class RandkeyTest < Minitest::Test
     assert @rand_key.seed_number.to_s.length <= 5
   end
 
+  def test_as_string_method_turns_seed_number_into_string
+    assert_equal String, @rand_key.as_string.class
+  end
+
 end
