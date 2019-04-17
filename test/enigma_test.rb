@@ -37,7 +37,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.decrypt('keder ohulw', '02715', '040895')
   end
 
-  def test_encrypt_hash_date_today_if_no_date_given
+  def test_encrypt_message_with_key_only
     assert_equal @today, @enigma.encrypt('hello world')[:date]
   end
 
