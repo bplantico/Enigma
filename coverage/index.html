@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-04-16T20:33:25-06:00">2019-04-16T20:33:25-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-04-16T21:02:12-06:00">2019-04-16T21:02:12-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         9.3
+         19.75
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>1</b> files in total.
-    <b>18</b> relevant lines. 
-    <span class="green"><b>18</b> lines covered</span> and
+    <b>2</b> files in total.
+    <b>58</b> relevant lines. 
+    <span class="green"><b>58</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -51,13 +51,23 @@
     <tbody>
       
       <tr>
+        <td class="strong"><a href="#8846c75a179fb027ac2cbd240aea9df6479df3ba" class="src_link" title="lib/cipher.rb">lib/cipher.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>65</td>
+        <td>40</td>
+        <td>40</td>
+        <td>0</td>
+        <td>24.5</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#872e492c1c54290b946762b3407b7acca64d5246" class="src_link" title="lib/shifts.rb">lib/shifts.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>29</td>
         <td>18</td>
         <td>18</td>
         <td>0</td>
-        <td>9.3</td>
+        <td>9.2</td>
       </tr>
       
     </tbody>
@@ -75,6 +85,415 @@
       </div>
     
       <div class="source_files">
+      
+        <div class="source_table" id="8846c75a179fb027ac2cbd240aea9df6479df3ba">
+  <div class="header">
+    <h3>lib/cipher.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>40</b> relevant lines. 
+      <span class="green"><b>40</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Cipher</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_reader :shifts,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby">              :message,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">              :original_alphabet</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def initialize(message, shifts)</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="7">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    @message           = message.downcase</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="8">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    @shifts            = shifts</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="9">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    @original_alphabet = (&quot;a&quot;..&quot;z&quot;).to_a &lt;&lt; &quot; &quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def message_to_chars_arrays</code>
+        </li>
+      
+        <li class="covered" data-hits="13" data-linenumber="13">
+          <span class="hits">13</span>
+          
+          <code class="ruby">    a_chars = []; b_chars = []; c_chars = []; d_chars = []</code>
+        </li>
+      
+        <li class="covered" data-hits="13" data-linenumber="14">
+          <span class="hits">13</span>
+          
+          <code class="ruby">    @message.chars.each_with_index do |char, index|</code>
+        </li>
+      
+        <li class="covered" data-hits="156" data-linenumber="15">
+          <span class="hits">156</span>
+          
+          <code class="ruby">      a_chars &lt;&lt; char if (index + 1) % 4 == 1</code>
+        </li>
+      
+        <li class="covered" data-hits="156" data-linenumber="16">
+          <span class="hits">156</span>
+          
+          <code class="ruby">      b_chars &lt;&lt; char if (index + 1) % 4 == 2</code>
+        </li>
+      
+        <li class="covered" data-hits="156" data-linenumber="17">
+          <span class="hits">156</span>
+          
+          <code class="ruby">      c_chars &lt;&lt; char if (index + 1) % 4 == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="156" data-linenumber="18">
+          <span class="hits">156</span>
+          
+          <code class="ruby">      d_chars &lt;&lt; char if (index + 1) % 4 == 0</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="13" data-linenumber="20">
+          <span class="hits">13</span>
+          
+          <code class="ruby">    arrays = [a_chars, b_chars, c_chars, d_chars]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def encrypted_array</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="24">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    new_array = []</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="25">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    message_to_chars_arrays.each_with_index do |array, index|</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="26">
+          <span class="hits">12</span>
+          
+          <code class="ruby">      encoded_alphabet = @original_alphabet.rotate(@shifts[index])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">      new_array &lt;&lt; array.map do |char|</code>
+        </li>
+      
+        <li class="covered" data-hits="36" data-linenumber="28">
+          <span class="hits">36</span>
+          
+          <code class="ruby">        if @original_alphabet.include?(char)</code>
+        </li>
+      
+        <li class="covered" data-hits="33" data-linenumber="29">
+          <span class="hits">33</span>
+          
+          <code class="ruby">          char_index = @original_alphabet.index(char)</code>
+        </li>
+      
+        <li class="covered" data-hits="33" data-linenumber="30">
+          <span class="hits">33</span>
+          
+          <code class="ruby">          encoded_alphabet[char_index]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="32">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          char</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="34">
+          <span class="hits">12</span>
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="36">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    new_array</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def encrypted_string</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="40">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    a,b,c,d = encrypted_array</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="41">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    a.zip(b).zip(c).zip(d).flatten.compact.join</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def decrypted_array</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="45">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    new_array = []</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="46">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    message_to_chars_arrays.each_with_index do |array, index|</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="47">
+          <span class="hits">12</span>
+          
+          <code class="ruby">      encoded_alphabet = @original_alphabet.rotate(-@shifts[index])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">      new_array &lt;&lt; array.map do |char|</code>
+        </li>
+      
+        <li class="covered" data-hits="36" data-linenumber="49">
+          <span class="hits">36</span>
+          
+          <code class="ruby">        if @original_alphabet.include?(char)</code>
+        </li>
+      
+        <li class="covered" data-hits="33" data-linenumber="50">
+          <span class="hits">33</span>
+          
+          <code class="ruby">          char_index = @original_alphabet.index(char)</code>
+        </li>
+      
+        <li class="covered" data-hits="33" data-linenumber="51">
+          <span class="hits">33</span>
+          
+          <code class="ruby">          encoded_alphabet[char_index]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="53">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          char</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="55">
+          <span class="hits">12</span>
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="57">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    new_array</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def decrypted_string</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="61">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    a,b,c,d = decrypted_array</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="62">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    a.zip(b).zip(c).zip(d).flatten.compact.join</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
       
         <div class="source_table" id="872e492c1c54290b946762b3407b7acca64d5246">
   <div class="header">
@@ -120,14 +539,14 @@
           <code class="ruby">  def initialize(key, date)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="6">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="8" data-linenumber="6">
+          <span class="hits">8</span>
           
           <code class="ruby">    @key  = key</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="7">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="8" data-linenumber="7">
+          <span class="hits">8</span>
           
           <code class="ruby">    @date = date</code>
         </li>
@@ -150,32 +569,32 @@
           <code class="ruby">  def keys</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="11">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="11">
+          <span class="hits">8</span>
           
           <code class="ruby">    a_key = @key.chars[0..1].join.to_i</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="12">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="12">
+          <span class="hits">8</span>
           
           <code class="ruby">    b_key = @key.chars[1..2].join.to_i</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="13">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="13">
+          <span class="hits">8</span>
           
           <code class="ruby">    c_key = @key.chars[2..3].join.to_i</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="14">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="14">
+          <span class="hits">8</span>
           
           <code class="ruby">    d_key = @key.chars[3..4].join.to_i</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="15">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="15">
+          <span class="hits">8</span>
           
           <code class="ruby">    keys_array = [a_key, b_key, c_key, d_key]</code>
         </li>
@@ -198,20 +617,20 @@
           <code class="ruby">  def offsets</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="19">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="19">
+          <span class="hits">8</span>
           
           <code class="ruby">    offset_seed = (@date.to_i ** 2)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="20">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="20">
+          <span class="hits">8</span>
           
           <code class="ruby">    last_four_digits = offset_seed.to_s.chars[offset_seed.to_s.chars.count - 4, 4]</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="21">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="40" data-linenumber="21">
+          <span class="hits">40</span>
           
           <code class="ruby">    last_four_digits.map { |digit| digit.to_i }</code>
         </li>
@@ -234,14 +653,14 @@
           <code class="ruby">  def shifts</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="25">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="25">
+          <span class="hits">8</span>
           
           <code class="ruby">    shift_seed = offsets.zip(keys)</code>
         </li>
       
-        <li class="covered" data-hits="25" data-linenumber="26">
-          <span class="hits">25</span>
+        <li class="covered" data-hits="40" data-linenumber="26">
+          <span class="hits">40</span>
           
           <code class="ruby">    shift_seed.map { |seed| seed.sum }</code>
         </li>

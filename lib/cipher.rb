@@ -1,5 +1,7 @@
 class Cipher
-  attr_reader :shifts
+  attr_reader :shifts,
+              :message,
+              :original_alphabet
 
   def initialize(message, shifts)
     @message           = message.downcase
